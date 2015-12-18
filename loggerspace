@@ -1,0 +1,5 @@
+#!/bin/bash
+# loggerspace
+# usage: loggerspace <free space needed>
+
+[ `df -m /var | tail -n1 | awk '{print $4}'` -lt $1 ] && echo "logger running out of disk spcace"

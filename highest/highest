@@ -1,0 +1,26 @@
+#!/bin/bash
+# highest
+# highest albums 5 -h  
+
+# From command line: highest <filename> [number of lines to sort] [-h for header]
+
+if [ -z "$1" ]; then
+  echo 'usage: highest filename [n] [-h]'
+  exit 1
+fi
+
+echo
+
+# return the header "Albums Artist" if a third positional variable is entered on the command line. For example, -h.
+# -n is no line feed
+# -e is to interpret "\n" as a line feed.  
+header=$3
+echo -e -n ${header:+"Albums Artist\n"} 
+
+filename=$1
+howmany=${2:-10}
+
+# sort 10 lines if no number is given in the command line.
+# sort -n is numberic, -r is reverse order (highest to lowest.)
+# head outputs the first -n lines of a file to standard out.
+sort -nr $filename | head -$howmany

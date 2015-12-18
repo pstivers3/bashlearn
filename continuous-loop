@@ -1,0 +1,10 @@
+#!/bin/bash
+# continuous-loop
+
+while true; do
+    sleep 3 
+    echo "boo!" 
+#    break
+done
+
+exit 0

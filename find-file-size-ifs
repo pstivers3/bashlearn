@@ -1,0 +1,17 @@
+#!/bin/bash
+# find-file-size-ifs
+# usage: find-file-size-ifs <file extension> <limit in bytes>
+
+ext=$1
+limit=$2
+
+IFSsaved=IFS
+IFS=$(echo -en "\n\b")
+for filename in $(find . -name "*.$ext"); do
+    size=$(stat -c %s "$filename")
+    [ $size -gt $limit ] && echo "$size $filename"
+done
+IFS=IFSsaved
+
+exit
+

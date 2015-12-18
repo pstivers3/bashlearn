@@ -1,0 +1,30 @@
+#!/bin/bash
+# options
+# usage: options --elb [exists] [create] --rds [exists] [create] [none]
+# 
+
+usage="options --elb [exists] [create] --rds [exists] [create] [none]"
+
+echo
+while [ -n "$(echo $1 | grep '^-')" ]; do
+    case $1 in
+        --elb ) 
+            elb_option=$2
+            shift
+            # echo "--elb $1"
+            ;;
+        --rds ) 
+            rds_option=$2
+            shift
+            # echo "--rds $1"
+            ;;
+        * )
+            echo "$usage"
+            exit 1
+    esac
+    shift
+done
+
+echo "elb_option=$elb_option"
+echo "rds_option=$rds_option"
+echo

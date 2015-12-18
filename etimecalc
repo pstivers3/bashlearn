@@ -1,0 +1,17 @@
+etime='05:34'
+# etime='02:34'
+# etime='5-03:42:34'
+echo "etime = $etime"
+echo
+
+# calculate expired time
+min=$(echo $etime | awk -F: '{print $(NF-1)}')
+echo "min = $min"
+etime_char_count=$(echo $etime | wc -m)
+echo "etime_char_count = $etime_char_count"
+
+if [ $min -ge 05 ] || [ $etime_char_count -gt 6 ];
+then
+  echo "minutes greater than 05, or etime_car_count greater than 5"
+fi
+

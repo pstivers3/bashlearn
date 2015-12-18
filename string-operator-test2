@@ -1,0 +1,11 @@
+#!/bin/bash
+# string-operator-test2
+# usage: test-string-operator2 [--test]
+
+a=$1
+
+if [ "$a" = --test ]; then
+    echo "yes"
+else
+    echo "no" 
+fi

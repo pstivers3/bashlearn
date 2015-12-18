@@ -1,0 +1,14 @@
+#!/bin/bash
+#ifandforarithmetic
+
+let k=1
+for (( i= 1 ; i <= 8 ; i++)); do
+    echo "i=$((i))"
+    if (( (i>1) && (i)<=4 )); then
+        k=$((k))
+        ((++k))
+        echo "if loop = yes"
+    fi
+done
+
+exit

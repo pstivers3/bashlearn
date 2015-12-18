@@ -1,0 +1,5 @@
+
+    # hot standby sorry server
+    BalancerMember http://10.203.21.222:80 status=+H
+    ProxySet lbmethod=bytraffic
+

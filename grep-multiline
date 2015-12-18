@@ -1,0 +1,10 @@
+#!/bin/bash
+# grep-multiline
+
+grep_lines=$(egrep a testfile)
+let i=1
+while [ -n "$(echo $grep_lines | cut -d' ' -f$((i)))" ]; do
+    line[i]=$(echo $grep_lines | cut -d' ' -f$((i)))
+    echo ${line[i]}
+    ((++i))
+done 

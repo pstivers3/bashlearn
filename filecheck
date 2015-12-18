@@ -1,0 +1,13 @@
+#!/bin/bash
+# filecheck
+# usage: filecheck
+
+cf_path=~/bin/bashlearn/dir1
+file_number=1
+
+if [ ! -f "$cf_path/file$file_number" ]; then
+  echo "file does not exist"
+else
+  echo "file exists"
+fi
+exit

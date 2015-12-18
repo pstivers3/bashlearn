@@ -1,0 +1,9 @@
+function countargs
+{
+	echo "$# args."
+}
+IFS=,
+echo list: "$*"
+countargs "$*"
+echo list: "$@"
+countargs "$@"

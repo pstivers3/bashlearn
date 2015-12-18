@@ -1,0 +1,17 @@
+#!/bin/bash
+# ifconditionals
+# usage: ifconditionals <yes|no> <yes|no> <yes|no> 
+
+condition1=$1
+condition2=$2
+condition3=$3
+
+echo
+
+if [ "$condition1" = yes ] && [ "$condition2" = no -o "$condition3" = no ]; then
+    echo "yes && -o no" 
+else 
+    echo "something else" 
+fi
+echo
+exit

@@ -1,0 +1,9 @@
+#!/bin/bash
+# read-test
+# usage: read-test
+
+while read a b c;do
+    echo "$a $b $c"
+    break;
+done < test
+exit

@@ -1,0 +1,26 @@
+#!/bin/bash
+# get-app-server-secruity-group
+# usage: get-app-server-secruity-group <public FQDN of app server>
+
+# Get the app server security group
+master_server_fqdn=$1
+security_groups=$(ec2-describe-instances --filter "dns-name=$master_server_fqdn" | egrep ^RESERVATION | awk '{ print $4 }')
+echo $security_groups
+let n=1
+until [ -n "$app_security_group" ]; do
+    app_security_group=$(echo $security_groups | cut -d',' -f$n | egrep -i 'app')
+    ((++n))
+done
+
+# Get the stack security group
+# Notice, n incramented once after the app secruity group was found
+if [ "$n" = 2 ]; then
+    stack_security_group=$(echo $security_groups | cut -d',' -f$n)
+else
+    stack_security_group=$(echo $security_groups | cut -d',' -f1)
+fi
+
+echo
+echo "app server secrity group: $app_security_group"
+echo "stack security group:     $stack_security_group"
+echo

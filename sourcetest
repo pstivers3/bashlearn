@@ -1,0 +1,7 @@
+#!/bin/bash
+# sourcetest
+
+sourcepath="${HOME}/bin/bashlearn"
+# source ~/bin/bashlearn/sourcefile
+source "${sourcepath}/sourcefile"
+echo "variable1 = $variable1"

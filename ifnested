@@ -1,0 +1,31 @@
+#!/bin/bash
+#ifnested
+
+a=aa
+b=bb
+
+if [ "$a" = aa ]; then
+    echo "a = $a"
+    if [ "$b" = bb ]; then
+        echo "b = $b"
+    fi
+fi
+
+exit 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,23 @@
+#!/bin/bash
+# loop-trap
+
+# Run the script
+# if type ctrl-c, should get "How dare you!"
+# Without the loop function, on ctrl-c, should get "You typed control-c!"
+# If run the script in the background and kill %loop-trap, should get "You tried to kill me!"
+# To kill the script, type control-z, then  kill -9 <pid> or %<process number> or %<loop-trap> depending on the situation.
+
+loop() {
+    trap "echo 'How dare you!'" INT
+}
+
+trap "echo 'You typed control-c!'" INT
+trap "echo 'You tried to kill me!'" TERM 
+
+loop
+
+while true; do
+   sleep 60
+done
+
+exit 0

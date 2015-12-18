@@ -1,0 +1,8 @@
+#!/bin/bash
+# forloop
+
+list="/etc /bin $HOME"
+
+for directories in $list; do
+    ls $directories
+done

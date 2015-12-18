@@ -1,0 +1,10 @@
+#!/bin/bash
+# long-process
+
+trap "echo 'you hit ctrl-c!'" INT
+
+while true; do
+    sleep 600
+done
+
+exit 0

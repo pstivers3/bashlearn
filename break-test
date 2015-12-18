@@ -1,0 +1,15 @@
+#!/bin/bash
+# break-test
+
+let i=5
+while [[ i >  3 ]]; do
+    sleep 2
+    echo $i
+    if [[ $i -eq 2 ]]; then
+        break
+    fi
+    ((--i))
+done
+echo break at $i
+
+exit 0

@@ -1,0 +1,4 @@
+RESERVATION r-efe5f183  421885590500    koa-app,koa
+INSTANCE    i-7ba9a915  ami-3853ac51            pending rover-dev1  0       m1.small    2011-07-02T04:33:10+0000    us-east-1b  aki-5f15f636    ari-d5709dbc        monitoring-disabled                 ebs                 paravirtual xen     sg-8a5ce6e3, sg-7c65df15    default
+INSTANCE    i-79a9a917  ami-3853ac51            pending rover-dev1  1       m1.small    2011-07-02T04:33:10+0000    us-east-1b  aki-5f15f636    ari-d5709dbc        monitoring-disabled                 ebs                 paravirtual xen     sg-8a5ce6e3, sg-7c65df15    default
+INSTANCE    i-77a9a919  ami-3853ac51            pending rover-dev1  2       m1.small    2011-07-02T04:33:10+0000    us-east-1b  aki-5f15f636    ari-d5709dbc        monitoring-disabled                 ebs                 paravirtual xen     sg-8a5ce6e3, sg-7c65df15    default

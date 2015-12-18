@@ -1,0 +1,17 @@
+#!/bin/bash
+# exit-control-primary
+# usage: exit-control-primary <null | text>
+
+echo
+./exit-control-secondary $1
+if [ "$?" = 1 ]; then
+    echo "exiting from exit control primary"
+    echo
+    exit 1
+fi
+
+echo "text from primary"
+echo
+
+exit
+

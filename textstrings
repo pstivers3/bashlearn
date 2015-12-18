@@ -1,0 +1,11 @@
+#!/bin/bash
+# textstrings
+# usage: teststrings <stack>
+
+stack=$1
+
+if [ $stack == oak ]; then
+    echo "You can not use this script for Production oak stack."
+    exit
+fi
+        

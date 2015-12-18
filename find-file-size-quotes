@@ -1,0 +1,18 @@
+#!/bin/bash
+# find-file-size-quotes
+# usage: ./find-file-size-quotes <file extension> <limit in bytes>
+
+# this script will work for filenames containing spaces
+
+ext=$1
+limit=$2
+
+# filenames=$(find . -name "*.$ext")
+# for filename in $filenames; do
+for filename in "$( echo $(find . -name \"*.$ext\"))"; do
+    size=$(stat -c %s "$filename")
+    [ $size -gt $limit ] && echo "$size $filename"
+done
+
+exit 0
+

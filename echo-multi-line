@@ -1,0 +1,9 @@
+#!/bin/bash
+
+info="Header\n
+- Item 1\n
+- Item 2\n 
+- Item 3\n" 
+
+echo -e $info
+
