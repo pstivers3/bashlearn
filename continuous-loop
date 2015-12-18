@@ -2,8 +2,9 @@
 # continuous-loop
 
 while true; do
-    sleep 1800 # sleep for a half hour
-    break
+    sleep 3 
+    echo "boo!" 
+#    break
 done
 
 exit 0
