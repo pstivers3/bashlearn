@@ -1,0 +1,93 @@
+Test
+    fdbvfdbvfdbvfdbvfd
+sdflksdflksdflkjjj
+    We have found the following jobs on Sologig that we feel would be a good fit for you. These recommendations are based on several aspects of your job searching behaviors. When building this list, we look at jobs you have previously applied for, your past and current job experience, your education, and your location. We understand this list may not always be perfect, but we hope it will get you one step closer to find the right job for you
+
+sdfasdf asdf
+#!/bin/bash
+# push_provisioning
+
+# Usage:   push_provisioning [options] stack
+
+## 2011-07-05 -  Script modified to handle multiple versions of Ubuntu.
+##  Added initial code to handle Rover versions.
+
+
+SVN_URL="https://ipg-ijp-dps.csd200a.com/svn/ipg-ijp-dps/"
+
+ubuntu_ver="karmic"
+rover_ver="2x"
+
+## This is for some terminal colors.
+
+
+while [ -n "$(echo $1 | grep '-')" ]; do
+    case $1 in
+
+        -k|--karmic ) ubuntu_ver="karmic";;
+        -l|--lucid ) ubuntu_ver="lucid";;
+        -n|--natty ) ubuntu_ver="natty";;
+        -2x|-2|--2x ) rover_ver="2x";;
+        -3x|-3|--3x ) rover_ver="3x";;
+        -h|--help ) echo -e "Usage options:\n\t-k --karmic \t\tSets Ubuntu Version to Karmic\n\t-l --lucid \t\tSets Ubuntu Version to Lucid\n\t-n --natty \t\tSets Ubuntu Version to Natty"
+        exit 0;;
+        * ) echo -e 'usage: push_provisioning [options] stack\n\t you can also try -h or --help for help\n'
+        exit 1;;
+    esac
+    shift
+
+done
+
+
+stack="$1"
+if [ "$stack" == "" ]; then
+        echo >&2 "usage: push_provisioning [options] stack"
+        exit 1
+fi
+
+# The configuration for the stacks is stored in the repo.
+if [ ! -d "stacks" ]; then
+        echo "Checking out the stack configurations..."
+        svn co -q $SVN_URL/admin/stacks/trunk stacks
+else
+        echo "Updating the stack configuration information..."
+        (cd "stacks"; svn update -q)
+fi
+
+# Get the hostname of the master server for the given stack.
+stack_dir="stacks/rover/$stack"
+if [ ! -d "$stack_dir" ]; then
+      echo >&2 "Error: the $stack stack has not been defined"
+        exit 1
+fi
+master_file="$stack_dir/master"
+if [ ! -f "$master_file" ]; then
+        echo >& "Error: no master for $stack has been defined"
+        exit 1
+fi
+master=`cat $master_file`
+
+
+#Double check that the source files exist.
+if [ ! -d "packages/$ubuntu_ver" ]
+then
+    echo "packages/$ubuntu_ver doesn't exitst."
+    exit 1
+fi
+
+# Temporarily create a "provisioning" directory so we can mirror it up to the
+# server.
+mkdir provisioning
+cp -a packages/$ubuntu_ver/* provisioning/
+cp -a scripts/* provisioning/
+
+# Notify user of what ubuntu version they sent
+echo "Sending $ubuntu_ver packages to $stack"
+
+# Mirror the directory to the remote server. The "--delete" flag will ensure
+# stale packages and files will be removed.
+rsync -va --progress --delete provisioning roveradmin@${master}:~/
+
+# Remove the provisioning directory since we are done with it.
+rm -Rf provisioning
+

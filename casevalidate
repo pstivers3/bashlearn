@@ -1,0 +1,18 @@
+#!/bin/bash
+# casevalidate
+
+# useage: ./casevalidate <mongo | mongoconf>
+
+tier=$1
+
+# check for valid command line arguments for tier
+case $1 in
+    mongo ) ;;
+    mongoconf ) ;;
+    * )
+        echo
+        echo "\"$1\" is not a valid option."
+        echo "$usage"
+        exit 1
+esac
+

@@ -1,0 +1,9 @@
+#!/bin/bash
+# error-out
+
+cd ..
+cd -
+ls foo
+
+exit 0
+

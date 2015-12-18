@@ -1,0 +1,8 @@
+#!/bin/bash
+# multi-line-echo
+
+$multi-line='This is a test line \n \
+This is a second test line \n'
+
+echo $multi_line
+

@@ -1,0 +1,11 @@
+#!/bin/bash
+# blocks
+# usage: ./blocks
+
+>blocks.test
+{ 
+echo
+echo "this is a test"
+echo "this is another text"
+} >> blocks.test
+exit

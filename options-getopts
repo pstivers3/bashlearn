@@ -1,0 +1,28 @@
+#!/bin/bash
+# options-getopts
+usage="usage: options-getupts <any test string> [-a <a|b|c|d>]"
+
+text=$1
+shift
+
+# Process the command line option
+while getopts ":a:" opt; do
+    case $opt in
+        a ) 
+            az=$OPTARG
+        ;;
+        \? )
+            echo
+            echo "\"$1\" is not a valid option." 
+            echo "$usage"
+            echo
+            exit 1
+    esac
+    shift $(($OPTIND - 1))
+done
+
+echo
+echo "text = $text"
+echo "az   = $az"
+echo
+exit

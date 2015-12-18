@@ -1,0 +1,33 @@
+#!/bin/bash
+# rkill
+# Paul Stivers
+# last updated: 20100111
+
+rows=$(ps -eo pid,etime,comm,%mem | egrep '[V]irtualBox' | wc -l)
+
+if [ $rows -eq 1 ]; then
+  grepvbox=$(ps -eo pid,etime,comm,%mem | egrep '[V]irtualBox')
+  pid=$(ps -eo pid,etime,comm,%mem | egrep '[V]irtualBox' | awk '{ print $1 " " $2 " " $3 }' | cut -d' ' -f1)
+  etime=$(ps -eo pid,etime,comm,%mem | egrep '[V]irtualBox' | awk '{ print $1 " " $2 " " $3 }' | cut -d' ' -f2)
+  echo
+  echo $grepvbox
+  # echo $grepvbox >> rkill.log
+  echo "pid = $pid"
+  echo "etime = $etime"
+  echo
+
+  # calculate expired time
+  min=$(echo $etime | awk -F: '{print $(NF-1)}')
+  echo "min = $min"
+  etime_char_count=$(echo $etime | wc -m)
+  echo "etime_char_count  = $etime_char_count"
+
+  if [ $min -ge 05 ] || [ $etime_char_count -gt 6 ]; then
+    echo "minutes greater than 05, or etime_char_count greater than 5"
+    # kill -9 $pid
+    echo "rake process $pid has been killed"
+    # echo "rake process $pid has been killed" >> rkill.log
+    echo
+  fi
+fi
+                  

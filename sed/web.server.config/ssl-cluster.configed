@@ -1,0 +1,2 @@
+    BalancerMember https://ec2-50-16-189-193.compute-1.amazonaws.com:443 
+    BalancerMember https://ec2-50-16-189-194.compute-1.amazonaws.com:443

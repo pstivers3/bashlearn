@@ -1,0 +1,18 @@
+#!/bin/bash
+# pattern-match
+
+# usage: ./pattern-match <'pattern'> <words in single quotes, to check for match>
+pattern=$1
+shift
+echo "Matching pattern '$pattern' against strings:"
+for string; do # string contains all the command line arguments except the first. The first argumanet <pattern> has be shifted.
+    case $string in
+        $pattern) 
+            printf "%-20s %-10s\n" "$string" ": match" ;;
+        *)
+            printf "%-20s %-10s\n" "$string" ": no match" ;;
+    esac
+done
+
+exit 0
+

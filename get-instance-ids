@@ -1,0 +1,14 @@
+#!/bin/bash
+# get-instance-id
+# usage: get-instance-id <number>
+# example: get-instance-id 2
+
+let i=$1
+instance_ids=$(cat instance-ids | egrep ^INSTANCE | awk '{ print $2 }') 
+instance_id=$(echo $instance_ids | awk '{ print $i }') 
+
+echo
+echo "instance ID is $instance_id"
+echo
+
+exit

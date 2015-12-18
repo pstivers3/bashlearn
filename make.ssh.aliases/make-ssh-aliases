@@ -1,0 +1,47 @@
+#!/bin/bash
+# make-ssh-aliases
+# Paul Stivers
+# last updated: 2010-04-07
+
+user=$1
+help_state=$1
+
+usage="usage: $0 <user name>"
+
+# If help_state=help, display help.
+if [ "$help_state" = help ]; then
+  echo 
+  echo "$usage"
+  echo
+  exit 0
+fi
+
+if [ -z "$user" ]; then
+  echo
+  echo $usage
+  echo
+  exit 1
+fi
+ 
+let line_index=0
+let comment_index=0
+for line in $(cat fqdn.list); do
+  # didn't find blank lines or lines with white space
+  # if [ -n "$(echo $line | grep '^ ')" ] || [ -z "$line" ]; then
+  if [ -n "$(echo $line | grep '^[.]')" ]; then
+    echo 
+  fi
+  if [ -n "$(echo $line | grep '#')" ]; then
+    comment_index=$((line_index))
+    comment_field1=$(echo $line | cut -d'-' -f1)
+    comment_field2=$(echo $line | cut -d'-' -f2)
+    echo "$comment_field1"
+  fi
+  if [ -n "$(echo $line | grep 'ec2')" ]; then
+    echo "alias s${comment_field2}$((line_index-comment_index))='ssh ${user}@${line}'"
+  fi
+  ((++line_index))
+done
+
+exit 0 
+

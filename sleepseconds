@@ -1,0 +1,14 @@
+#!/bin/bash
+# sleepseconds
+
+echo
+echo "Sleep 300 seconds before deploy, to let DNS propagate."
+let i=0
+let k=300  # sleep seconds
+echo -n "seconds remaining until deploy: "
+while [ $i -lt $k ]; do
+    echo -n "$((k-i)) "
+    sleep 30
+    i=$((i+30))
+done
+

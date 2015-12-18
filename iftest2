@@ -1,0 +1,15 @@
+#!/bin/bash
+# iftest2 <stack>
+
+stack=$1
+
+if [ -z $stack ]; then
+    echo null
+else
+    echo 'not null'
+fi
+
+if [ match = $stack ]; then
+   echo "stack name is \"match\""
+fi
+exit

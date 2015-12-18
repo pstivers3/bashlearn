@@ -1,0 +1,8 @@
+#!/bin/bash
+# linebreak
+
+echo "blah blah \
+blah blah \
+boo ! "
+
+exit 0

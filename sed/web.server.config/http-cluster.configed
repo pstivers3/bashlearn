@@ -1,0 +1,6 @@
+    BalancerMember http://ec2-50-16-189-193.compute-1.amazonaws.com:80 loadfactor=1 connectiontimeout=1000ms retry=300
+    BalancerMember http://ec2-50-16-189-194.compute-1.amazonaws.com:80 loadfactor=1 connectiontimeout=1000ms retry=300
+
+    # hot standby sorry server
+    BalancerMember http://10.203.21.222:80 status=+H
+    ProxySet lbmethod=bytraffic

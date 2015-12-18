@@ -1,0 +1,8 @@
+#!/bin/bash
+# readname
+
+echo 'What is your name? '
+read name
+echo "I'm sorry, $name, but I can't let you do that."
+
+exit 0

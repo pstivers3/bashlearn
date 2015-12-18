@@ -1,0 +1,22 @@
+#!/bin/bash
+# list-commandline-arguments
+
+# usage ./list-commandline-argumants [arg1] [arg2] ...
+
+# load the args array
+declare -a args
+args=($@)
+
+echo
+# list the args
+let i=0
+for arg in $@; do
+   echo ${args[i]}
+   ((++i))
+done
+echo
+
+echo "The last arg is ${!#}"
+echo "Alternatively, the last arg is $(eval echo \$$#)"
+
+exit 0

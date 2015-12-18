@@ -1,0 +1,14 @@
+#!/bin/bash
+# whileor
+# usage ./whileor <value for a> <value for b>
+
+a=$1
+b=$2
+
+while [ "$a" = yes -a "$b" -le 10 ]; do
+    ((++b))
+    echo "a = $a"
+    echo "b = $b"
+done
+
+exit 0

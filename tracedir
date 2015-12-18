@@ -1,0 +1,11 @@
+#!/bin/bash
+# tracedir
+
+file=$1
+echo $file
+
+if [ -d "$file" ]; then
+  cd $file
+  ~/bin/bashlearn/tracedir $(ls)
+  cd ..
+fi

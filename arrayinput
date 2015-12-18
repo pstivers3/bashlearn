@@ -1,0 +1,17 @@
+#!/bin/bash
+# array input
+
+MONGODB_HOSTS="foo-app-1 foo-app-2 foo-app-3"
+
+let k=1
+for mongo_host in $MONGODB_HOSTS; do
+    host[k]=$mongo_host
+    ((++k))
+done
+
+echo "host1=${host[1]}"
+echo "host2=${host[2]}"
+echo "host3=${host[3]}"
+
+exit
+

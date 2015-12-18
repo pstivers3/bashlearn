@@ -1,0 +1,10 @@
+#!/bin/bash
+# source.file
+
+cat <<_END_
+var1=boo1
+var2=boo2
+_END_
+
+echo "boo3"
+echo "boo4"

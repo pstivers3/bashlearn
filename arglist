@@ -1,0 +1,13 @@
+#!/bin/bash
+# arglist
+
+IFS=,
+echo
+echo "IFS is set to '$IFS'"
+echo "The IFS delmited command line arguments are: $*"
+echo "The space delimited command line arguments are: $@"
+echo "The number of command line arguments is $#."
+echo "The path to the script that is currently running is $0"
+echo "The PID of the current process is $$"
+echo "The last argument to the last executed command is: $_"
+exit

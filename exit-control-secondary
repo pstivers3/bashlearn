@@ -1,0 +1,12 @@
+#!/bin/bash
+# exit-control-secondary
+# called from exit-control-primary
+
+if [ -z "$1" ]; then
+    echo "value was null"
+    echo "exiting from exit control secondary"
+    exit 1
+fi
+
+exit
+

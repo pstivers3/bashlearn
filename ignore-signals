@@ -1,0 +1,15 @@
+#!/bin/bash
+# ignore-signals
+
+function ignorehup {
+    trap "" HUP
+    eval "$@"
+}
+
+ignorehup
+
+while true; do
+   sleep 60
+done
+
+exit 0

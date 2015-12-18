@@ -1,0 +1,11 @@
+#!/bin/bash
+# for-arithmetic-read
+
+line_count=$(cat test | wc -l)
+echo "line count = $line_count"
+for (( i=1 ; i <= line_count ; i++ )); do
+    awk "NR==$((i))" test
+done
+
+exit
+

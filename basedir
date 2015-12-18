@@ -1,0 +1,12 @@
+#!/bin/bash
+# basedir
+
+basedir=$(cd `dirname "$0"`; pwd)
+cd "$basedir"
+
+echo
+echo "\$0 = $0"
+echo "basedir = $basedir"
+echo
+
+exit 0

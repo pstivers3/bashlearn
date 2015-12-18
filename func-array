@@ -1,0 +1,22 @@
+#!/bin/bash
+# usage: ./func-array
+
+function ioarray {
+  
+  echo "name = ${name[i]}"
+  echo "town = ${town[i]}"
+}
+
+name[0]="ann"
+town[0]="wilsonville"
+
+name[1]="paul"
+town[1]="albany"
+
+let i=0
+until [ -z "${name[i]}" ]; do
+  echo 
+  ioarray
+  ((++i))
+done
+

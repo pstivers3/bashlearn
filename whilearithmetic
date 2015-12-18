@@ -1,0 +1,18 @@
+#!/bin/bash
+# while-arithmetic
+
+sleep_seconds=5
+let i=0
+echo
+echo -n "seconds remaining until bang: "
+# while ((i<$sleep_seconds)); do
+while [ $i -lt $sleep_seconds ]; do
+    echo -n "$((sleep_seconds - i)) "
+    sleep 1
+    i=$((i+1))
+done
+echo
+echo
+echo 'bang!!!'
+echo
+exit

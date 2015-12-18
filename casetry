@@ -1,0 +1,13 @@
+#!/bin/bash
+# casetry
+# usage: casetry
+
+var="abcd"
+case $var in
+    *bc ) print "*bc matches";;
+    *cd ) ;;
+    a* | d )  echo "a* or d matches";;
+esac
+echo "exit status is $?"
+
+exit 0

@@ -1,0 +1,9 @@
+test='aaa'
+
+while [ $test ]; do #while test is non-null
+    echo $test
+    echo before
+    test=${test%a}
+    echo after
+done
+

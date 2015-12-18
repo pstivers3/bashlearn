@@ -1,0 +1,16 @@
+#!/bin/bash
+# string-operator-test
+# usage: test-string-operator [--test or -t]
+
+a=$1
+
+if [ $a != --test ] && [ $a != -t ] && [ -n $a ]; then
+    echo "option \"$a\" is invalid"
+    echo "usage: test-string-operator [--test or -t]"
+    exit 1
+fi
+
+echo
+echo "option was \"$a\""
+echo
+exit  

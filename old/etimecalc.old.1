@@ -1,0 +1,19 @@
+etime='02:34'
+echo "etime = $etime"
+echo
+
+# calculate expired time
+etime_clip_sec=${etime%:*}
+echo "etime_clip_sec = $etime_clip_sec"
+min=${etime_clip_sec##*:}
+echo "min = $min"
+etime_clip_min=${etime_clip_sec%:*}
+echo "etime_clip_min = $etime_clip_min"
+hour=${etime_clip_min##:*}
+echo "hour = $hour"
+
+if [ $min -ge 05 ] || [ -n $hour ];
+then
+  echo "minutes greater than 05, or hour not null"
+fi
+

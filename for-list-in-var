@@ -1,0 +1,11 @@
+#!/bin/bash
+#for-list-in-var
+
+. ~/ec2.env
+
+echo
+for  eip in $(ec2-describe-addresses --region us-east-1 | egrep -v i | awk '{ print $2 }'); do
+    echo $eip    
+done
+echo
+exit 0

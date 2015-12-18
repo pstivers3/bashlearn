@@ -1,0 +1,17 @@
+PS3='chose your medicine: '
+IFS=':'
+list="castor oil:aspirin:microwbrew"
+echo
+select medicine in $list; do
+    if [ $medicine ]; then
+        echo
+        echo "here's your $medicine"
+        echo
+        break
+    else
+        echo
+        echo "invalid selection"
+        echo
+    fi
+done
+

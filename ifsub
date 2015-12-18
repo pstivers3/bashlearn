@@ -1,0 +1,4 @@
+#!/bin/bash
+# ifsub
+
+echo "if sub knows about AWS_ACCOUNT_ABREVIATION = $AWS_ACCOUNT_ABREVIATION"
