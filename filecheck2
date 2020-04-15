@@ -1,0 +1,9 @@
+#!/bin/bash
+
+file='/etc/zprofile'
+
+if [ -f $file ]; then
+    echo "$file exists"
+else
+    echo "$file doesn't exist"
+fi
